@@ -33,7 +33,7 @@ on:
         description: Benchmark preset.
         type: choice
         required: true
-        default: tip20
+        default: tip20_existing_recipients
         options:
           - tip20
           - tip20_2d_nonces
@@ -156,7 +156,7 @@ on:
       preset:
         type: string
         required: false
-        default: tip20
+        default: tip20_existing_recipients
       duration:
         type: string
         required: false
