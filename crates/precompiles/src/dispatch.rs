@@ -194,11 +194,7 @@ macro_rules! dispatch {
 pub use crate::dispatch;
 
 pub fn selector_from_calldata(calldata: &[u8]) -> Option<[u8; 4]> {
-    calldata.get(..4).map(|selector| {
-        selector
-            .try_into()
-            .expect("selector slice has exactly 4 bytes")
-    })
+    calldata.first_chunk::<4>().copied()
 }
 
 pub fn missing_selector_result() -> PrecompileResult {
