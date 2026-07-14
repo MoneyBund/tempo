@@ -161,7 +161,8 @@ macro_rules! dispatch {
         paste::paste! {{
             #[cfg(debug_assertions)]
             {
-                let mut selectors = std::collections::BTreeSet::new();
+                extern crate alloc as __alloc;
+                let mut selectors = __alloc::collections::BTreeSet::new();
                 $(assert!(
                     <$iface::$calls as alloy::sol_types::SolInterface>::selectors().all(|s| selectors.insert(s)),
                     "duplicate precompile selector in dispatch! macro",
