@@ -25,7 +25,10 @@ pub const FEE_PAYER_SIGNATURE_MARKER: Signature = Signature::new(U256::ZERO, U25
 
 /// Signature type constants
 pub const SECP256K1_SIGNATURE_LENGTH: usize = 65;
+/// Encoded byte length of a P256 signature: 32 (r) + 32 (s) + 32 (pub_key_x) + 32 (pub_key_y)
+/// + 1 (pre-hash flag).
 pub const P256_SIGNATURE_LENGTH: usize = 129;
+/// Maximum accepted byte length of a WebAuthn signature payload (2 KiB).
 pub const MAX_WEBAUTHN_SIGNATURE_LENGTH: usize = 2048; // 2KB max
 
 /// Nonce key marking an expiring nonce transaction (uses tx hash for replay protection).
